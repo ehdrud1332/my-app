@@ -14,44 +14,26 @@ class App extends Component {
 
     // 함수, 상수, 상태값을 선언해주는 위치
     // 상태값은 상태값을 담는 그릇
-
     state = {
-        count: 0
-    }
-    add = () => {
-        console.log("add");
-        this.setState(current => ({ count: current.count + 1 }));
-    }
-    Minus = () => {
-        console.log("Minus");
-        this.setState(current => ({ count: current.count - 1 }));
-    }
-    // react lifecycle
-    // 컵포넌트가 실행이 다 완료됐을때
+        isLoading: true,
+        movies : []
+    };
+
     componentDidMount() {
-        // 네트워크를 태워서 바로 보여줄때
-        console.log("componentDidMount");
-    }
-    // 실행이 되기 전
-    componentWillMount() {
-        console.log("componentDidMount");
-    }
-    // 업데이트가 되고 나서
-    coponentDidUpdate() {
-        console.log("componentDidUpdate");
+        setTimeout(() => {
+            this.setState({isLoading: false});
+        }, 6000);
     }
 
     render() {
 
         // return에서 사용될 상수 상태값들을 재선언해주는 곳
+        const { isLoading } = this.state;
 
         return (
             //화면에 뿌려주는 코드
             <div>
-                <h1>The number is {this.state.count}</h1>
-                {/*//button안에 onclick이라는 속성이 있음*/}
-                <button onClick={this.add}>add</button>
-                <button onClick={this.Minus}>Minus</button>
+                {isLoading ? "Loading" : "wa are Ready"}
            </div>
         );
     }

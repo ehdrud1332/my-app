@@ -8,8 +8,8 @@ function App() {
         jaemin app
       </text>
 
-        <Potato/>
-        <Potato/>
+        <Potato favourite="pizza" />
+        <Potato favourite="berger" />
 
     </div>
   );

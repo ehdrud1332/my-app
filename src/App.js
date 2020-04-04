@@ -1,4 +1,5 @@
 import React from 'react';
+import Potato from "./potato";
 
 function App() {
   return (
@@ -6,6 +7,9 @@ function App() {
       <text>
         jaemin app
       </text>
+
+        <Potato/>
+        <Potato/>
 
     </div>
   );

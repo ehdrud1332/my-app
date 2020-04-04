@@ -6,7 +6,7 @@
 // 단축키 rcc
 import React, {Component} from 'react';
 import axios from 'axios';
-
+import Movie from './Movie';
 
 
 //컴포넌트를 확장해주는 클래스 app
@@ -52,9 +52,17 @@ class App extends Component {
                     </div>
                 ) : (
                     <div>
-                        {movies.map(movie => {
-
-                        })}
+                        {movies.map(movie => (
+                            <Movie
+                                key={movie.id}
+                                runtime={movie.runtime}
+                                year={movie.year}
+                                summary={movie.summary}
+                                id={movie.id}
+                                title={movie.title}
+                                poster={movie.large_cover_image}
+                            />
+                        ))}
                     </div>
                 )}
 

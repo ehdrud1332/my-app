@@ -5,7 +5,7 @@
 
 // 단축키 rcc
 import React, {Component} from 'react';
-
+import axios from 'axios';
 
 
 
@@ -19,21 +19,45 @@ class App extends Component {
         movies : []
     };
 
+    getMovies = async () => {
+        const {
+            data: {
+                data: {movies}
+            }
+        } = await axios.get("https://yts.mx/api/v2/list_movies.json");
+        this.setState({ movies, isLoading: false });
+    }
+
     componentDidMount() {
-        setTimeout(() => {
-            this.setState({isLoading: false});
-        }, 6000);
+        this.getMovies();
+        // setTimeout(() => {
+        //     this.setState({isLoading: false});
+        // }, 6000);
     }
 
     render() {
 
         // return에서 사용될 상수 상태값들을 재선언해주는 곳
-        const { isLoading } = this.state;
+        const { isLoading, movies } = this.state;
 
+        console.log("movies ", movies);
         return (
             //화면에 뿌려주는 코드
             <div>
-                {isLoading ? "Loading" : "wa are Ready"}
+                {isLoading ? (
+                    <div>
+                        <span>
+                            Loading...
+                        </span>
+                    </div>
+                ) : (
+                    <div>
+                        {movies.map(movie => {
+
+                        })}
+                    </div>
+                )}
+
            </div>
         );
     }

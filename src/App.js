@@ -14,6 +14,7 @@ class App extends Component {
 
     // 함수, 상수, 상태값을 선언해주는 위치
     // 상태값은 상태값을 담는 그릇
+
     state = {
         count: 0
     }
@@ -24,6 +25,20 @@ class App extends Component {
     Minus = () => {
         console.log("Minus");
         this.setState(current => ({ count: current.count - 1 }));
+    }
+    // react lifecycle
+    // 컵포넌트가 실행이 다 완료됐을때
+    componentDidMount() {
+        // 네트워크를 태워서 바로 보여줄때
+        console.log("componentDidMount");
+    }
+    // 실행이 되기 전
+    componentWillMount() {
+        console.log("componentDidMount");
+    }
+    // 업데이트가 되고 나서
+    coponentDidUpdate() {
+        console.log("componentDidUpdate");
     }
 
     render() {
@@ -41,5 +56,6 @@ class App extends Component {
         );
     }
 }
+//라이프사이클 : 생명주기
 
 export default App;

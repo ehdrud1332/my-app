@@ -61,7 +61,8 @@ class App extends Component {
                                 summary={movie.summary}
                                 id={movie.id}
                                 title={movie.title}
-                                poster={movie.small_cover_image}
+                                poster={movie.large_cover_image}
+                                genres={movie.genres}
                             />
                         ))}
                     </div>

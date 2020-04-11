@@ -7,6 +7,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Movie from './Movie';
+import "./App.css";
 
 
 //컴포넌트를 확장해주는 클래스 app
@@ -43,15 +44,15 @@ class App extends Component {
         console.log("movies ", movies);
         return (
             //화면에 뿌려주는 코드
-            <div>
+            <div classname="container">
                 {isLoading ? (
-                    <div>
+                    <div className="loader">
                         <span>
                             Loading...
                         </span>
                     </div>
                 ) : (
-                    <div>
+                    <div className="movies">
                         {movies.map(movie => (
                             <Movie
                                 key={movie.id}
@@ -60,7 +61,7 @@ class App extends Component {
                                 summary={movie.summary}
                                 id={movie.id}
                                 title={movie.title}
-                                poster={movie.large_cover_image}
+                                poster={movie.small_cover_image}
                             />
                         ))}
                     </div>

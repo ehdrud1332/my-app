@@ -2,12 +2,13 @@
 // 1번
 import React from 'react'
 import PropTypes from 'prop-types'
+import "./Movie.css";
 
 
 // 2번
 function Movie({ id, title, year, runtime, poster, summary }) {
     return (
-        <div>
+        <div className="movie">
             <img src={poster} alt={title} title={{title}}/>
             <div>
                 <h3>{title}</h3>
